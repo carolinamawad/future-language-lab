@@ -7,6 +7,7 @@
 <title>English Lab | Class 01</title>
 
 <style>
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
 * {
@@ -30,7 +31,7 @@ header {
     position: sticky;
     top: 0;
     z-index: 100;
-    background: rgba(7,17,31,0.92);
+    background: rgba(7,17,31,0.94);
     backdrop-filter: blur(15px);
     border-bottom: 1px solid rgba(255,255,255,0.08);
 }
@@ -56,22 +57,21 @@ header {
 
 .nav-links {
     display: flex;
-    gap: 10px;
+    gap: 7px;
     flex-wrap: wrap;
 }
 
 .nav-links button {
     background: transparent;
-    color: #b9c5d6;
+    color: #aeb9c9;
     border: none;
-    padding: 9px 12px;
+    padding: 9px 11px;
     border-radius: 8px;
     cursor: pointer;
-    font-size: 13px;
+    font-size: 12px;
 }
 
-.nav-links button:hover,
-.nav-links button.active {
+.nav-links button:hover {
     background: rgba(99,215,255,0.12);
     color: #63d7ff;
 }
@@ -95,7 +95,7 @@ header {
 }
 
 .hero h1 {
-    font-size: clamp(42px, 7vw, 82px);
+    font-size: clamp(45px, 7vw, 82px);
     line-height: 0.95;
     margin-bottom: 25px;
 }
@@ -105,7 +105,7 @@ header {
 }
 
 .hero p {
-    max-width: 650px;
+    max-width: 700px;
     color: #aeb9c9;
     font-size: 18px;
     line-height: 1.7;
@@ -120,7 +120,6 @@ header {
     color: #07111f;
     font-weight: 800;
     cursor: pointer;
-    transition: 0.2s;
 }
 
 .start-button:hover {
@@ -153,7 +152,7 @@ header {
 }
 
 .progress-fill {
-    width: 10%;
+    width: 11%;
     height: 100%;
     background: #63d7ff;
     transition: width 0.4s ease;
@@ -179,14 +178,17 @@ main {
 }
 
 @keyframes fadeIn {
+
     from {
         opacity: 0;
         transform: translateY(10px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
     }
+
 }
 
 .section-number {
@@ -245,6 +247,35 @@ main {
 }
 
 /* =========================
+   AUDIO BUTTON
+========================= */
+
+.audio-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    margin-top: 12px;
+    padding: 8px 13px;
+    border: 1px solid #29425d;
+    border-radius: 8px;
+    background: #101f31;
+    color: #63d7ff;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.audio-btn:hover {
+    background: #63d7ff;
+    color: #07111f;
+}
+
+.audio-btn.playing {
+    background: #63d7ff;
+    color: #07111f;
+}
+
+/* =========================
    DIALOGUE
 ========================= */
 
@@ -258,7 +289,7 @@ main {
     margin: 12px 0;
     border-radius: 15px;
     max-width: 75%;
-    line-height: 1.5;
+    line-height: 1.6;
 }
 
 .message.a {
@@ -287,7 +318,6 @@ main {
 
 .pronoun {
     text-align: center;
-    cursor: pointer;
 }
 
 .pronoun .word {
@@ -340,7 +370,7 @@ main {
 
 .alphabet {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(65px, 1fr));
     gap: 8px;
     margin-top: 25px;
 }
@@ -353,11 +383,13 @@ main {
     text-align: center;
     font-weight: 800;
     cursor: pointer;
+    transition: 0.2s;
 }
 
 .letter:hover {
     background: #63d7ff;
     color: #07111f;
+    transform: translateY(-2px);
 }
 
 /* =========================
@@ -492,6 +524,10 @@ main {
     border-radius: 8px;
 }
 
+.final-task .sentence button {
+    margin-left: 10px;
+}
+
 /* =========================
    NAVIGATION
 ========================= */
@@ -518,7 +554,7 @@ main {
 }
 
 /* =========================
-   RESPONSIVE
+   MOBILE
 ========================= */
 
 @media(max-width:700px) {
@@ -538,36 +574,60 @@ main {
     .message {
         max-width: 90%;
     }
+
 }
+
 </style>
 </head>
 
+
 <body>
 
+
+<!-- =========================
+     HEADER
+========================= -->
+
 <header>
-    <div class="navbar">
 
-        <div class="logo">
-            ENGLISH <span>LAB</span>
-        </div>
+<div class="navbar">
 
-        <div class="nav-links">
-            <button onclick="showSection(1)">C1</button>
-            <button onclick="showSection(2)">Greetings</button>
-            <button onclick="showSection(3)">Pronouns</button>
-            <button onclick="showSection(4)">To Be</button>
-            <button onclick="showSection(5)">Alphabet</button>
-            <button onclick="showSection(6)">Countries</button>
-            <button onclick="showSection(7)">Numbers</button>
-            <button onclick="showSection(8)">Practice</button>
-            <button onclick="showSection(9)">Communicate</button>
-        </div>
+    <div class="logo">
+        ENGLISH <span>LAB</span>
+    </div>
+
+    <div class="nav-links">
+
+        <button onclick="showSection(1)">Greetings</button>
+
+        <button onclick="showSection(2)">Listening</button>
+
+        <button onclick="showSection(3)">Pronouns</button>
+
+        <button onclick="showSection(4)">To Be</button>
+
+        <button onclick="showSection(5)">Alphabet</button>
+
+        <button onclick="showSection(6)">Countries</button>
+
+        <button onclick="showSection(7)">Numbers</button>
+
+        <button onclick="showSection(8)">Practice</button>
+
+        <button onclick="showSection(9)">Communicate</button>
 
     </div>
+
+</div>
+
 </header>
 
 
-<section class="hero" id="home">
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero">
 
     <div class="hero-label">
         ENGLISH LAB · A1 BEGINNER
@@ -579,27 +639,39 @@ main {
 
     <p>
         Welcome to English Lab.
-        In this class, you will discover how to greet people,
-        introduce yourself, spell your name, talk about countries
-        and use basic numbers.
+        Today you will learn how to greet people,
+        introduce yourself, spell your name,
+        talk about countries and use basic numbers.
     </p>
 
-    <button class="start-button" onclick="showSection(1)">
+    <button class="start-button"
+            onclick="showSection(1)">
         START CLASS →
     </button>
 
 </section>
 
 
+<!-- =========================
+     PROGRESS
+========================= -->
+
 <div class="progress-container">
 
     <div class="progress-label">
+
         <span>CLASS 01 PROGRESS</span>
+
         <span id="progressText">1 / 9</span>
+
     </div>
 
     <div class="progress-bar">
-        <div class="progress-fill" id="progressFill"></div>
+
+        <div class="progress-fill"
+             id="progressFill">
+        </div>
+
     </div>
 
 </div>
@@ -614,157 +686,320 @@ main {
 
 <section class="section active" id="section1">
 
-    <div class="section-number">01 · DISCOVER</div>
+<div class="section-number">
+    01 · DISCOVER
+</div>
 
-    <h2>👋 Greetings</h2>
+<h2>👋 Greetings</h2>
 
-    <p class="section-intro">
-        Let's start with the language we use when we meet someone.
+<p class="section-intro">
+    Let's start with the language we use when we meet someone.
+</p>
+
+
+<div class="grid">
+
+
+<div class="card">
+
+    <div class="card-icon">👋</div>
+
+    <h3>Hello!</h3>
+
+    <p>
+        A common way to greet someone.
     </p>
 
-    <div class="grid">
+    <button class="audio-btn"
+            onclick="speak('Hello!', this)">
+        🔊 Listen
+    </button>
 
-        <div class="card">
-            <div class="card-icon">👋</div>
-            <h3>Hello!</h3>
-            <p>A common way to greet someone.</p>
-        </div>
+</div>
 
-        <div class="card">
-            <div class="card-icon">😊</div>
-            <h3>Hi!</h3>
-            <p>A friendly and informal greeting.</p>
-        </div>
 
-        <div class="card">
-            <div class="card-icon">☀️</div>
-            <h3>Good morning!</h3>
-            <p>We use it in the morning.</p>
-        </div>
+<div class="card">
 
-        <div class="card">
-            <div class="card-icon">🌙</div>
-            <h3>Goodbye!</h3>
-            <p>We use it when we leave.</p>
-        </div>
+    <div class="card-icon">😊</div>
 
-    </div>
+    <h3>Hi!</h3>
 
-    <div class="activity">
+    <p>
+        A friendly and informal greeting.
+    </p>
 
-        <h3>Quick Check</h3>
+    <button class="audio-btn"
+            onclick="speak('Hi!', this)">
+        🔊 Listen
+    </button>
 
-        <p>
-            You meet someone for the first time. What can you say?
-        </p>
+</div>
 
-        <div class="options">
-            <button class="option" onclick="checkAnswer(this, true)">
-                Hello!
-            </button>
 
-            <button class="option" onclick="checkAnswer(this, false)">
-                Goodbye!
-            </button>
+<div class="card">
 
-            <button class="option" onclick="checkAnswer(this, false)">
-                Good night!
-            </button>
-        </div>
+    <div class="card-icon">☀️</div>
 
-        <div class="feedback"></div>
+    <h3>Good morning!</h3>
 
-    </div>
+    <p>
+        We use it in the morning.
+    </p>
 
-    <div class="lesson-navigation">
-        <button onclick="showSection(2)">Next →</button>
-    </div>
+    <button class="audio-btn"
+            onclick="speak('Good morning!', this)">
+        🔊 Listen
+    </button>
+
+</div>
+
+
+<div class="card">
+
+    <div class="card-icon">🌙</div>
+
+    <h3>Goodbye!</h3>
+
+    <p>
+        We use it when we leave.
+    </p>
+
+    <button class="audio-btn"
+            onclick="speak('Goodbye!', this)">
+        🔊 Listen
+    </button>
+
+</div>
+
+
+</div>
+
+
+<div class="activity">
+
+<h3>Quick Check</h3>
+
+<p>
+    You meet someone for the first time.
+    What can you say?
+</p>
+
+
+<div class="options">
+
+<button class="option"
+        onclick="checkAnswer(this,true)">
+    Hello!
+</button>
+
+<button class="option"
+        onclick="checkAnswer(this,false)">
+    Goodbye!
+</button>
+
+<button class="option"
+        onclick="checkAnswer(this,false)">
+    Good night!
+</button>
+
+</div>
+
+<div class="feedback"></div>
+
+</div>
+
+
+<div class="lesson-navigation">
+
+<button onclick="showSection(2)">
+    Next →
+</button>
+
+</div>
 
 </section>
 
 
+
 <!-- =========================
-     02 LISTENING / DIALOGUE
+     02 LISTENING
 ========================= -->
 
 <section class="section" id="section2">
 
-    <div class="section-number">02 · LISTEN & CONNECT</div>
+<div class="section-number">
+    02 · LISTEN & CONNECT
+</div>
 
-    <h2>🎧 Meet Someone</h2>
+<h2>🎧 Meet Someone</h2>
 
-    <p class="section-intro">
-        Look at the people. Listen to the conversation and connect the language with the situation.
-    </p>
+<p class="section-intro">
+    Listen to the conversation and connect the language with the people.
+</p>
 
-    <div class="grid">
 
-        <div class="card">
-            <div class="card-icon">👩</div>
-            <h3>Anna</h3>
-            <p>Hello! My name is Anna.</p>
-        </div>
+<div class="grid">
 
-        <div class="card">
-            <div class="card-icon">👨</div>
-            <h3>Daniel</h3>
-            <p>Hi! I'm Daniel.</p>
-        </div>
 
-    </div>
+<div class="card">
 
-    <div class="dialogue">
+<div class="card-icon">👩</div>
 
-        <div class="message a">
-            <span class="speaker">ANNA</span>
-            Hello! What's your name?
-        </div>
+<h3>Anna</h3>
 
-        <div class="message b">
-            <span class="speaker">DANIEL</span>
-            Hi! My name is Daniel.
-        </div>
+<p>
+Hello! My name is Anna.
+</p>
 
-        <div class="message a">
-            <span class="speaker">ANNA</span>
-            Nice to meet you!
-        </div>
+<button class="audio-btn"
+onclick="speak('Hello! My name is Anna.',this)">
+🔊 Listen
+</button>
 
-        <div class="message b">
-            <span class="speaker">DANIEL</span>
-            Nice to meet you, too!
-        </div>
+</div>
 
-    </div>
 
-    <div class="activity">
+<div class="card">
 
-        <h3>Connect</h3>
+<div class="card-icon">👨</div>
 
-        <p>Who says: "My name is Daniel"?</p>
+<h3>Daniel</h3>
 
-        <div class="options">
+<p>
+Hi! I'm Daniel.
+</p>
 
-            <button class="option" onclick="checkAnswer(this, false)">
-                Anna
-            </button>
+<button class="audio-btn"
+onclick="speak(`Hi! I'm Daniel.`,this)">
+🔊 Listen
+</button>
 
-            <button class="option" onclick="checkAnswer(this, true)">
-                Daniel
-            </button>
+</div>
 
-        </div>
 
-        <div class="feedback"></div>
+</div>
 
-    </div>
 
-    <div class="lesson-navigation">
-        <button onclick="showSection(1)">← Back</button>
-        <button onclick="showSection(3)">Next →</button>
-    </div>
+<div class="dialogue">
+
+
+<div class="message a">
+
+<span class="speaker">
+ANNA
+</span>
+
+Hello! What's your name?
+
+<br>
+
+<button class="audio-btn"
+onclick="speak(`Hello! What's your name?`,this)">
+🔊 Listen
+</button>
+
+</div>
+
+
+<div class="message b">
+
+<span class="speaker">
+DANIEL
+</span>
+
+Hi! My name is Daniel.
+
+<br>
+
+<button class="audio-btn"
+onclick="speak('Hi! My name is Daniel.',this)">
+🔊 Listen
+</button>
+
+</div>
+
+
+<div class="message a">
+
+<span class="speaker">
+ANNA
+</span>
+
+Nice to meet you!
+
+<br>
+
+<button class="audio-btn"
+onclick="speak('Nice to meet you!',this)">
+🔊 Listen
+</button>
+
+</div>
+
+
+<div class="message b">
+
+<span class="speaker">
+DANIEL
+</span>
+
+Nice to meet you, too!
+
+<br>
+
+<button class="audio-btn"
+onclick="speak('Nice to meet you, too!',this)">
+🔊 Listen
+</button>
+
+</div>
+
+
+</div>
+
+
+<div class="activity">
+
+<h3>🎧 Listen & Connect</h3>
+
+<p>
+Who says: "My name is Daniel"?
+</p>
+
+
+<div class="options">
+
+<button class="option"
+onclick="checkAnswer(this,false)">
+Anna
+</button>
+
+<button class="option"
+onclick="checkAnswer(this,true)">
+Daniel
+</button>
+
+</div>
+
+<div class="feedback"></div>
+
+</div>
+
+
+<div class="lesson-navigation">
+
+<button onclick="showSection(1)">
+← Back
+</button>
+
+<button onclick="showSection(3)">
+Next →
+</button>
+
+</div>
 
 </section>
+
 
 
 <!-- =========================
@@ -773,85 +1008,182 @@ main {
 
 <section class="section" id="section3">
 
-    <div class="section-number">03 · DISCOVER THE LANGUAGE</div>
+<div class="section-number">
+    03 · DISCOVER THE LANGUAGE
+</div>
 
-    <h2>👤 Personal Pronouns</h2>
+<h2>👤 Personal Pronouns</h2>
 
-    <p class="section-intro">
-        Who are we talking about?
-    </p>
+<p class="section-intro">
+    Who are we talking about?
+</p>
 
-    <div class="grid">
 
-        <div class="card pronoun">
-            <div class="word">I</div>
-            <div class="meaning">me</div>
-        </div>
+<div class="grid">
 
-        <div class="card pronoun">
-            <div class="word">You</div>
-            <div class="meaning">the person I talk to</div>
-        </div>
 
-        <div class="card pronoun">
-            <div class="word">He</div>
-            <div class="meaning">one man / boy</div>
-        </div>
+<div class="card pronoun">
 
-        <div class="card pronoun">
-            <div class="word">She</div>
-            <div class="meaning">one woman / girl</div>
-        </div>
+<div class="word">I</div>
 
-        <div class="card pronoun">
-            <div class="word">It</div>
-            <div class="meaning">one thing / animal</div>
-        </div>
+<div class="meaning">
+me
+</div>
 
-        <div class="card pronoun">
-            <div class="word">We</div>
-            <div class="meaning">me + another person</div>
-        </div>
+<button class="audio-btn"
+onclick="speak('I',this)">
+🔊
+</button>
 
-        <div class="card pronoun">
-            <div class="word">They</div>
-            <div class="meaning">other people</div>
-        </div>
+</div>
 
-    </div>
 
-    <div class="activity">
+<div class="card pronoun">
 
-        <h3>Who is it?</h3>
+<div class="word">You</div>
 
-        <p>👩 Maria is my friend. ___ is from Colombia.</p>
+<div class="meaning">
+the person I talk to
+</div>
 
-        <div class="options">
+<button class="audio-btn"
+onclick="speak('You',this)">
+🔊
+</button>
 
-            <button class="option" onclick="checkAnswer(this, false)">
-                He
-            </button>
+</div>
 
-            <button class="option" onclick="checkAnswer(this, true)">
-                She
-            </button>
 
-            <button class="option" onclick="checkAnswer(this, false)">
-                They
-            </button>
+<div class="card pronoun">
 
-        </div>
+<div class="word">He</div>
 
-        <div class="feedback"></div>
+<div class="meaning">
+one man / boy
+</div>
 
-    </div>
+<button class="audio-btn"
+onclick="speak('He',this)">
+🔊
+</button>
 
-    <div class="lesson-navigation">
-        <button onclick="showSection(2)">← Back</button>
-        <button onclick="showSection(4)">Next →</button>
-    </div>
+</div>
+
+
+<div class="card pronoun">
+
+<div class="word">She</div>
+
+<div class="meaning">
+one woman / girl
+</div>
+
+<button class="audio-btn"
+onclick="speak('She',this)">
+🔊
+</button>
+
+</div>
+
+
+<div class="card pronoun">
+
+<div class="word">It</div>
+
+<div class="meaning">
+one thing / animal
+</div>
+
+<button class="audio-btn"
+onclick="speak('It',this)">
+🔊
+</button>
+
+</div>
+
+
+<div class="card pronoun">
+
+<div class="word">We</div>
+
+<div class="meaning">
+me + another person
+</div>
+
+<button class="audio-btn"
+onclick="speak('We',this)">
+🔊
+</button>
+
+</div>
+
+
+<div class="card pronoun">
+
+<div class="word">They</div>
+
+<div class="meaning">
+other people
+</div>
+
+<button class="audio-btn"
+onclick="speak('They',this)">
+🔊
+</button>
+
+</div>
+
+
+</div>
+
+
+<div class="activity">
+
+<h3>Who is it?</h3>
+
+<p>
+👩 Maria is my friend. ___ is from Colombia.
+</p>
+
+
+<div class="options">
+
+<button class="option"
+onclick="checkAnswer(this,false)">
+He
+</button>
+
+<button class="option"
+onclick="checkAnswer(this,true)">
+She
+</button>
+
+<button class="option"
+onclick="checkAnswer(this,false)">
+They
+</button>
+
+</div>
+
+<div class="feedback"></div>
+
+</div>
+
+
+<div class="lesson-navigation">
+
+<button onclick="showSection(2)">
+← Back
+</button>
+
+<button onclick="showSection(4)">
+Next →
+</button>
+
+</div>
 
 </section>
+
 
 
 <!-- =========================
@@ -860,86 +1192,173 @@ main {
 
 <section class="section" id="section4">
 
-    <div class="section-number">04 · BUILD</div>
+<div class="section-number">
+    04 · BUILD
+</div>
 
-    <h2>🔧 Verb TO BE</h2>
+<h2>🔧 Verb TO BE</h2>
 
-    <p class="section-intro">
-        Now let's connect people with information.
-    </p>
+<p class="section-intro">
+    Now let's connect people with information.
+</p>
 
-    <div class="language-box">
 
-        <h3>TO BE</h3>
+<div class="language-box">
 
-        <div class="structure">
+<h3>TO BE</h3>
 
-            <div>
-                <strong>I am</strong><br>
-                I'm
-            </div>
 
-            <div>
-                <strong>You are</strong><br>
-                You're
-            </div>
+<div class="structure">
 
-            <div>
-                <strong>He is</strong><br>
-                He's
-            </div>
 
-            <div>
-                <strong>She is</strong><br>
-                She's
-            </div>
+<div>
 
-            <div>
-                <strong>We are</strong><br>
-                We're
-            </div>
+<strong>I am</strong>
 
-            <div>
-                <strong>They are</strong><br>
-                They're
-            </div>
+<br>
 
-        </div>
+I'm
 
-    </div>
+<button class="audio-btn"
+onclick="speak(`I am`,this)">
+🔊
+</button>
 
-    <div class="activity">
+</div>
 
-        <h3>Complete the sentence</h3>
 
-        <p>My name is Carolina. ___ from Colombia.</p>
+<div>
 
-        <div class="options">
+<strong>You are</strong>
 
-            <button class="option" onclick="checkAnswer(this, true)">
-                I'm
-            </button>
+<br>
 
-            <button class="option" onclick="checkAnswer(this, false)">
-                She's
-            </button>
+You're
 
-            <button class="option" onclick="checkAnswer(this, false)">
-                They're
-            </button>
+<button class="audio-btn"
+onclick="speak(`You are`,this)">
+🔊
+</button>
 
-        </div>
+</div>
 
-        <div class="feedback"></div>
 
-    </div>
+<div>
 
-    <div class="lesson-navigation">
-        <button onclick="showSection(3)">← Back</button>
-        <button onclick="showSection(5)">Next →</button>
-    </div>
+<strong>He is</strong>
+
+<br>
+
+He's
+
+<button class="audio-btn"
+onclick="speak(`He is`,this)">
+🔊
+</button>
+
+</div>
+
+
+<div>
+
+<strong>She is</strong>
+
+<br>
+
+She's
+
+<button class="audio-btn"
+onclick="speak(`She is`,this)">
+🔊
+</button>
+
+</div>
+
+
+<div>
+
+<strong>We are</strong>
+
+<br>
+
+We're
+
+<button class="audio-btn"
+onclick="speak(`We are`,this)">
+🔊
+</button>
+
+</div>
+
+
+<div>
+
+<strong>They are</strong>
+
+<br>
+
+They're
+
+<button class="audio-btn"
+onclick="speak(`They are`,this)">
+🔊
+</button>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+<div class="activity">
+
+<h3>Complete the sentence</h3>
+
+<p>
+My name is Carolina. ___ from Colombia.
+</p>
+
+
+<div class="options">
+
+<button class="option"
+onclick="checkAnswer(this,true)">
+I'm
+</button>
+
+<button class="option"
+onclick="checkAnswer(this,false)">
+She's
+</button>
+
+<button class="option"
+onclick="checkAnswer(this,false)">
+They're
+</button>
+
+</div>
+
+<div class="feedback"></div>
+
+</div>
+
+
+<div class="lesson-navigation">
+
+<button onclick="showSection(3)">
+← Back
+</button>
+
+<button onclick="showSection(5)">
+Next →
+</button>
+
+</div>
 
 </section>
+
 
 
 <!-- =========================
@@ -948,69 +1367,79 @@ main {
 
 <section class="section" id="section5">
 
-    <div class="section-number">05 · SPELL</div>
+<div class="section-number">
+    05 · SPELL
+</div>
 
-    <h2>🔤 The Alphabet</h2>
+<h2>🔤 The Alphabet</h2>
 
-    <p class="section-intro">
-        Can you spell your name?
-    </p>
+<p class="section-intro">
+    Click a letter to hear its name.
+</p>
 
-    <p style="color:#9daabd;">
-        Click a letter to practice identifying it.
-    </p>
 
-    <div class="alphabet">
+<div class="alphabet">
 
-        <div class="letter">A</div>
-        <div class="letter">B</div>
-        <div class="letter">C</div>
-        <div class="letter">D</div>
-        <div class="letter">E</div>
-        <div class="letter">F</div>
-        <div class="letter">G</div>
-        <div class="letter">H</div>
-        <div class="letter">I</div>
-        <div class="letter">J</div>
-        <div class="letter">K</div>
-        <div class="letter">L</div>
-        <div class="letter">M</div>
-        <div class="letter">N</div>
-        <div class="letter">O</div>
-        <div class="letter">P</div>
-        <div class="letter">Q</div>
-        <div class="letter">R</div>
-        <div class="letter">S</div>
-        <div class="letter">T</div>
-        <div class="letter">U</div>
-        <div class="letter">V</div>
-        <div class="letter">W</div>
-        <div class="letter">X</div>
-        <div class="letter">Y</div>
-        <div class="letter">Z</div>
+<div class="letter" onclick="speak('A',this)">A 🔊</div>
+<div class="letter" onclick="speak('B',this)">B 🔊</div>
+<div class="letter" onclick="speak('C',this)">C 🔊</div>
+<div class="letter" onclick="speak('D',this)">D 🔊</div>
+<div class="letter" onclick="speak('E',this)">E 🔊</div>
+<div class="letter" onclick="speak('F',this)">F 🔊</div>
+<div class="letter" onclick="speak('G',this)">G 🔊</div>
+<div class="letter" onclick="speak('H',this)">H 🔊</div>
+<div class="letter" onclick="speak('I',this)">I 🔊</div>
+<div class="letter" onclick="speak('J',this)">J 🔊</div>
+<div class="letter" onclick="speak('K',this)">K 🔊</div>
+<div class="letter" onclick="speak('L',this)">L 🔊</div>
+<div class="letter" onclick="speak('M',this)">M 🔊</div>
+<div class="letter" onclick="speak('N',this)">N 🔊</div>
+<div class="letter" onclick="speak('O',this)">O 🔊</div>
+<div class="letter" onclick="speak('P',this)">P 🔊</div>
+<div class="letter" onclick="speak('Q',this)">Q 🔊</div>
+<div class="letter" onclick="speak('R',this)">R 🔊</div>
+<div class="letter" onclick="speak('S',this)">S 🔊</div>
+<div class="letter" onclick="speak('T',this)">T 🔊</div>
+<div class="letter" onclick="speak('U',this)">U 🔊</div>
+<div class="letter" onclick="speak('V',this)">V 🔊</div>
+<div class="letter" onclick="speak('W',this)">W 🔊</div>
+<div class="letter" onclick="speak('X',this)">X 🔊</div>
+<div class="letter" onclick="speak('Y',this)">Y 🔊</div>
+<div class="letter" onclick="speak('Z',this)">Z 🔊</div>
 
-    </div>
+</div>
 
-    <div class="activity">
 
-        <h3>Spell your name</h3>
+<div class="activity">
 
-        <p>
-            Example: CAROLINA → C - A - R - O - L - I - N - A
-        </p>
+<h3>🔤 Spell your name</h3>
 
-        <button class="option" onclick="alert('Great! Now spell your own name aloud.')">
-            Try it →
-        </button>
+<p>
+Example: CAROLINA → C - A - R - O - L - I - N - A
+</p>
 
-    </div>
+<button class="audio-btn"
+onclick="speak('C A R O L I N A',this)">
+🔊 Listen
+</button>
 
-    <div class="lesson-navigation">
-        <button onclick="showSection(4)">← Back</button>
-        <button onclick="showSection(6)">Next →</button>
-    </div>
+</div>
+
+
+<div class="lesson-navigation">
+
+<button onclick="showSection(4)">
+← Back
+</button>
+
+<button onclick="showSection(6)">
+Next →
+</button>
+
+</div>
 
 </section>
+
 
 
 <!-- =========================
@@ -1019,91 +1448,187 @@ main {
 
 <section class="section" id="section6">
 
-    <div class="section-number">06 · EXPLORE THE WORLD</div>
+<div class="section-number">
+    06 · EXPLORE THE WORLD
+</div>
 
-    <h2>🌎 Countries</h2>
+<h2>🌎 Countries</h2>
 
-    <p class="section-intro">
-        Where are people from?
-    </p>
+<p class="section-intro">
+    Where are people from?
+</p>
 
-    <div class="grid">
 
-        <div class="card country">
-            🇨🇴 Colombia
-            <span>Colombia</span>
-        </div>
+<div class="grid">
 
-        <div class="card country">
-            🇺🇸 the United States
-            <span>the United States</span>
-        </div>
 
-        <div class="card country">
-            🇬🇧 the United Kingdom
-            <span>the United Kingdom</span>
-        </div>
+<div class="card country">
 
-        <div class="card country">
-            🇯🇵 Japan
-            <span>Japan</span>
-        </div>
+🇨🇴 Colombia
 
-        <div class="card country">
-            🇧🇷 Brazil
-            <span>Brazil</span>
-        </div>
+<span>Colombia</span>
 
-        <div class="card country">
-            🇪🇸 Spain
-            <span>Spain</span>
-        </div>
+<button class="audio-btn"
+onclick="speak('Colombia',this)">
+🔊 Listen
+</button>
 
-        <div class="card country">
-            🇫🇷 France
-            <span>France</span>
-        </div>
+</div>
 
-        <div class="card country">
-            🇨🇦 Canada
-            <span>Canada</span>
-        </div>
 
-    </div>
+<div class="card country">
 
-    <div class="language-box">
+🇺🇸 the United States
 
-        <h3>Notice</h3>
+<span>the United States</span>
 
-        <p style="color:#b2bdcb; line-height:1.7;">
-            Some country names use <strong>the</strong>.
-            Notice the difference:
-        </p>
+<button class="audio-btn"
+onclick="speak('the United States',this)">
+🔊 Listen
+</button>
 
-        <br>
+</div>
 
-        <p>
-            🇨🇴 Colombia
-            &nbsp;&nbsp; | &nbsp;&nbsp;
-            🇯🇵 Japan
-        </p>
 
-        <br>
+<div class="card country">
 
-        <p>
-            🇺🇸 <strong>the</strong> United States
-            &nbsp;&nbsp; | &nbsp;&nbsp;
-            🇬🇧 <strong>the</strong> United Kingdom
-        </p>
+🇬🇧 the United Kingdom
 
-    </div>
+<span>the United Kingdom</span>
 
-    <div class="lesson-navigation">
-        <button onclick="showSection(5)">← Back</button>
-        <button onclick="showSection(7)">Next →</button>
-    </div>
+<button class="audio-btn"
+onclick="speak('the United Kingdom',this)">
+🔊 Listen
+</button>
+
+</div>
+
+
+<div class="card country">
+
+🇯🇵 Japan
+
+<span>Japan</span>
+
+<button class="audio-btn"
+onclick="speak('Japan',this)">
+🔊 Listen
+</button>
+
+</div>
+
+
+<div class="card country">
+
+🇧🇷 Brazil
+
+<span>Brazil</span>
+
+<button class="audio-btn"
+onclick="speak('Brazil',this)">
+🔊 Listen
+</button>
+
+</div>
+
+
+<div class="card country">
+
+🇪🇸 Spain
+
+<span>Spain</span>
+
+<button class="audio-btn"
+onclick="speak('Spain',this)">
+🔊 Listen
+</button>
+
+</div>
+
+
+<div class="card country">
+
+🇫🇷 France
+
+<span>France</span>
+
+<button class="audio-btn"
+onclick="speak('France',this)">
+🔊 Listen
+</button>
+
+</div>
+
+
+<div class="card country">
+
+🇨🇦 Canada
+
+<span>Canada</span>
+
+<button class="audio-btn"
+onclick="speak('Canada',this)">
+🔊 Listen
+</button>
+
+</div>
+
+
+</div>
+
+
+<div class="language-box">
+
+<h3>Notice</h3>
+
+<p style="color:#b2bdcb;line-height:1.7;">
+
+Some country names use <strong>the</strong>.
+Notice the difference.
+
+</p>
+
+<br>
+
+<p>
+
+🇨🇴 Colombia
+
+&nbsp;&nbsp; | &nbsp;&nbsp;
+
+🇯🇵 Japan
+
+</p>
+
+<br>
+
+<p>
+
+🇺🇸 <strong>the</strong> United States
+
+&nbsp;&nbsp; | &nbsp;&nbsp;
+
+🇬🇧 <strong>the</strong> United Kingdom
+
+</p>
+
+</div>
+
+
+<div class="lesson-navigation">
+
+<button onclick="showSection(5)">
+← Back
+</button>
+
+<button onclick="showSection(7)">
+Next →
+</button>
+
+</div>
 
 </section>
+
 
 
 <!-- =========================
@@ -1112,56 +1637,225 @@ main {
 
 <section class="section" id="section7">
 
-    <div class="section-number">07 · COUNT</div>
+<div class="section-number">
+    07 · COUNT
+</div>
 
-    <h2>🔢 Numbers</h2>
+<h2>🔢 Numbers</h2>
 
-    <p class="section-intro">
-        Let's use numbers to give personal information.
-    </p>
+<p class="section-intro">
+    Click a number to hear it.
+</p>
 
-    <div class="grid">
 
-        <div class="card"><div class="number">0</div>zero</div>
-        <div class="card"><div class="number">1</div>one</div>
-        <div class="card"><div class="number">2</div>two</div>
-        <div class="card"><div class="number">3</div>three</div>
-        <div class="card"><div class="number">4</div>four</div>
-        <div class="card"><div class="number">5</div>five</div>
-        <div class="card"><div class="number">6</div>six</div>
-        <div class="card"><div class="number">7</div>seven</div>
-        <div class="card"><div class="number">8</div>eight</div>
-        <div class="card"><div class="number">9</div>nine</div>
-        <div class="card"><div class="number">10</div>ten</div>
-        <div class="card"><div class="number">20</div>twenty</div>
+<div class="grid">
 
-    </div>
 
-    <div class="activity">
+<div class="card">
 
-        <h3>Personal Information</h3>
+<div class="number">0</div>
 
-        <p>
-            What's your phone number?
-        </p>
+zero
 
-        <div class="options">
+<button class="audio-btn"
+onclick="speak('zero',this)">
+🔊 Listen
+</button>
 
-            <button class="option"
-                    onclick="alert('Great! Say each number clearly.')">
-                310 - 456 - 7821
-            </button>
+</div>
 
-        </div>
 
-    </div>
+<div class="card">
 
-    <div class="lesson-navigation">
-        <button onclick="showSection(6)">← Back</button>
-        <button onclick="showSection(8)">Next →</button>
-    </div>
+<div class="number">1</div>
+
+one
+
+<button class="audio-btn"
+onclick="speak('one',this)">
+🔊 Listen
+</button>
+
+</div>
+
+
+<div class="card">
+
+<div class="number">2</div>
+
+two
+
+<button class="audio-btn"
+onclick="speak('two',this)">
+🔊 Listen
+</button>
+
+</div>
+
+
+<div class="card">
+
+<div class="number">3</div>
+
+three
+
+<button class="audio-btn"
+onclick="speak('three',this)">
+🔊 Listen
+</button>
+
+</div>
+
+
+<div class="card">
+
+<div class="number">4</div>
+
+four
+
+<button class="audio-btn"
+onclick="speak('four',this)">
+🔊 Listen
+</button>
+
+</div>
+
+
+<div class="card">
+
+<div class="number">5</div>
+
+five
+
+<button class="audio-btn"
+onclick="speak('five',this)">
+🔊 Listen
+</button>
+
+</div>
+
+
+<div class="card">
+
+<div class="number">6</div>
+
+six
+
+<button class="audio-btn"
+onclick="speak('six',this)">
+🔊 Listen
+</button>
+
+</div>
+
+
+<div class="card">
+
+<div class="number">7</div>
+
+seven
+
+<button class="audio-btn"
+onclick="speak('seven',this)">
+🔊 Listen
+</button>
+
+</div>
+
+
+<div class="card">
+
+<div class="number">8</div>
+
+eight
+
+<button class="audio-btn"
+onclick="speak('eight',this)">
+🔊 Listen
+</button>
+
+</div>
+
+
+<div class="card">
+
+<div class="number">9</div>
+
+nine
+
+<button class="audio-btn"
+onclick="speak('nine',this)">
+🔊 Listen
+</button>
+
+</div>
+
+
+<div class="card">
+
+<div class="number">10</div>
+
+ten
+
+<button class="audio-btn"
+onclick="speak('ten',this)">
+🔊 Listen
+</button>
+
+</div>
+
+
+<div class="card">
+
+<div class="number">20</div>
+
+twenty
+
+<button class="audio-btn"
+onclick="speak('twenty',this)">
+🔊 Listen
+</button>
+
+</div>
+
+
+</div>
+
+
+<div class="activity">
+
+<h3>📱 Personal Information</h3>
+
+<p>
+What's your phone number?
+</p>
+
+<p>
+<strong>310 - 456 - 7821</strong>
+</p>
+
+<button class="audio-btn"
+onclick="speak('three one zero, four five six, seven eight two one',this)">
+🔊 Listen
+</button>
+
+</div>
+
+
+<div class="lesson-navigation">
+
+<button onclick="showSection(6)">
+← Back
+</button>
+
+<button onclick="showSection(8)">
+Next →
+</button>
+
+</div>
 
 </section>
+
 
 
 <!-- =========================
@@ -1170,67 +1864,97 @@ main {
 
 <section class="section" id="section8">
 
-    <div class="section-number">08 · PRACTICE</div>
+<div class="section-number">
+    08 · PRACTICE
+</div>
 
-    <h2>🧠 Build Your Profile</h2>
+<h2>🧠 Build Your Profile</h2>
 
-    <p class="section-intro">
-        Put the language together.
-    </p>
+<p class="section-intro">
+    Put the language together.
+</p>
 
-    <div class="profile">
 
-        <div class="profile-row">
-            <span>Name</span>
-            <span>Anna</span>
-        </div>
+<div class="profile">
 
-        <div class="profile-row">
-            <span>Country</span>
-            <span>Colombia</span>
-        </div>
 
-        <div class="profile-row">
-            <span>Phone</span>
-            <span>310 456 7821</span>
-        </div>
+<div class="profile-row">
 
-    </div>
+<span>Name</span>
 
-    <div class="activity">
+<span>Anna</span>
 
-        <h3>Build the introduction</h3>
+</div>
 
-        <p>
-            Choose the correct sentence:
-        </p>
 
-        <div class="options">
+<div class="profile-row">
 
-            <button class="option" onclick="checkAnswer(this, true)">
-                I'm Anna.
-            </button>
+<span>Country</span>
 
-            <button class="option" onclick="checkAnswer(this, false)">
-                Anna are.
-            </button>
+<span>Colombia</span>
 
-            <button class="option" onclick="checkAnswer(this, false)">
-                Anna am.
-            </button>
+</div>
 
-        </div>
 
-        <div class="feedback"></div>
+<div class="profile-row">
 
-    </div>
+<span>Phone</span>
 
-    <div class="lesson-navigation">
-        <button onclick="showSection(7)">← Back</button>
-        <button onclick="showSection(9)">Next →</button>
-    </div>
+<span>310 456 7821</span>
+
+</div>
+
+
+</div>
+
+
+<div class="activity">
+
+<h3>Build the introduction</h3>
+
+<p>
+Choose the correct sentence.
+</p>
+
+
+<div class="options">
+
+<button class="option"
+onclick="checkAnswer(this,true)">
+I'm Anna.
+</button>
+
+<button class="option"
+onclick="checkAnswer(this,false)">
+Anna are.
+</button>
+
+<button class="option"
+onclick="checkAnswer(this,false)">
+Anna am.
+</button>
+
+</div>
+
+<div class="feedback"></div>
+
+</div>
+
+
+<div class="lesson-navigation">
+
+<button onclick="showSection(7)">
+← Back
+</button>
+
+<button onclick="showSection(9)">
+Next →
+</button>
+
+</div>
 
 </section>
+
 
 
 <!-- =========================
@@ -1239,76 +1963,149 @@ main {
 
 <section class="section" id="section9">
 
-    <div class="section-number">09 · COMMUNICATE</div>
+<div class="section-number">
+    09 · COMMUNICATE
+</div>
 
-    <h2>🎯 Meet & Introduce</h2>
+<h2>🎯 Meet & Introduce</h2>
 
-    <p class="section-intro">
-        Now it's your turn. Use what you learned.
-    </p>
+<p class="section-intro">
+    Now it's your turn. Use what you learned.
+</p>
 
-    <div class="final-task">
 
-        <h3>🗣️ Your Mission</h3>
+<div class="final-task">
 
-        <p>
-            Imagine you are meeting someone for the first time.
-            Introduce yourself and ask for basic information.
-        </p>
+<h3>🗣️ Your Mission</h3>
 
-        <br>
+<p>
 
-        <div class="sentence">
-            👋 <strong>Hello!</strong>
-        </div>
+Imagine you are meeting someone for the first time.
+Introduce yourself and ask for basic information.
 
-        <div class="sentence">
-            ❓ <strong>What's your name?</strong>
-        </div>
+</p>
 
-        <div class="sentence">
-            👤 <strong>My name is ____.</strong>
-        </div>
 
-        <div class="sentence">
-            🔤 <strong>How do you spell it?</strong>
-        </div>
+<br>
 
-        <div class="sentence">
-            🌎 <strong>I'm from ____.</strong>
-        </div>
 
-        <div class="sentence">
-            🔢 <strong>My phone number is ____.</strong>
-        </div>
+<div class="sentence">
 
-        <div class="sentence">
-            😊 <strong>Nice to meet you!</strong>
-        </div>
+👋 <strong>Hello!</strong>
 
-    </div>
+<button class="audio-btn"
+onclick="speak('Hello!',this)">
+🔊
+</button>
 
-    <div class="activity">
+</div>
 
-        <h3>Final Check</h3>
 
-        <p>
-            Can you introduce yourself using at least three pieces
-            of personal information?
-        </p>
+<div class="sentence">
 
-        <div class="options">
+❓ <strong>What's your name?</strong>
 
-            <button class="option"
-                    onclick="finishClass()">
-                YES — I CAN DO IT!
-            </button>
+<button class="audio-btn"
+onclick="speak(`What's your name?`,this)">
+🔊
+</button>
 
-        </div>
+</div>
 
-        <div class="feedback" id="finalFeedback"></div>
 
-    </div>
+<div class="sentence">
+
+👤 <strong>My name is ____.</strong>
+
+<button class="audio-btn"
+onclick="speak('My name is Anna.',this)">
+🔊
+</button>
+
+</div>
+
+
+<div class="sentence">
+
+🔤 <strong>How do you spell it?</strong>
+
+<button class="audio-btn"
+onclick="speak('How do you spell it?',this)">
+🔊
+</button>
+
+</div>
+
+
+<div class="sentence">
+
+🌎 <strong>I'm from ____.</strong>
+
+<button class="audio-btn"
+onclick="speak(`I'm from Colombia.`,this)">
+🔊
+</button>
+
+</div>
+
+
+<div class="sentence">
+
+🔢 <strong>My phone number is ____.</strong>
+
+<button class="audio-btn"
+onclick="speak('My phone number is three one zero, four five six, seven eight two one.',this)">
+🔊
+</button>
+
+</div>
+
+
+<div class="sentence">
+
+😊 <strong>Nice to meet you!</strong>
+
+<button class="audio-btn"
+onclick="speak('Nice to meet you!',this)">
+🔊
+</button>
+
+</div>
+
+
+</div>
+
+
+<div class="activity">
+
+<h3>🎯 Final Check</h3>
+
+<p>
+
+Can you introduce yourself using at least
+three pieces of personal information?
+
+</p>
+
+
+<div class="options">
+
+<button class="option"
+onclick="finishClass()">
+
+YES — I CAN DO IT!
+
+</button>
+
+</div>
+
+
+<div class="feedback"
+id="finalFeedback">
+</div>
+
+</div>
+
 
 </section>
 
@@ -1316,7 +2113,59 @@ main {
 </main>
 
 
+
 <script>
+
+
+/* =========================
+   TEXT TO SPEECH
+========================= */
+
+function speak(text, button = null) {
+
+    // Stop previous audio
+    window.speechSynthesis.cancel();
+
+    const speech = new SpeechSynthesisUtterance(text);
+
+    // English voice
+    speech.lang = "en-US";
+
+    // Slightly slower for beginners
+    speech.rate = 0.82;
+
+    speech.pitch = 1;
+
+    // Find English voice
+    const voices = window.speechSynthesis.getVoices();
+
+    const englishVoice =
+        voices.find(voice =>
+            voice.lang === "en-US"
+        ) ||
+        voices.find(voice =>
+            voice.lang.startsWith("en")
+        );
+
+    if (englishVoice) {
+        speech.voice = englishVoice;
+    }
+
+    if (button) {
+
+        button.classList.add("playing");
+
+        speech.onend = function() {
+
+            button.classList.remove("playing");
+
+        };
+
+    }
+
+    window.speechSynthesis.speak(speech);
+}
+
 
 /* =========================
    SECTION NAVIGATION
@@ -1324,28 +2173,44 @@ main {
 
 function showSection(number) {
 
-    const sections = document.querySelectorAll('.section');
+    const sections =
+        document.querySelectorAll(".section");
 
     sections.forEach(section => {
-        section.classList.remove('active');
+
+        section.classList.remove("active");
+
     });
 
-    const selected = document.getElementById('section' + number);
 
-    if(selected) {
-        selected.classList.add('active');
+    const selected =
+        document.getElementById("section" + number);
+
+    if (selected) {
+
+        selected.classList.add("active");
+
     }
 
-    const progress = (number / 9) * 100;
 
-    document.getElementById('progressFill').style.width = progress + '%';
+    const progress =
+        (number / 9) * 100;
 
-    document.getElementById('progressText').innerText =
-        number + ' / 9';
+
+    document.getElementById("progressFill")
+        .style.width = progress + "%";
+
+
+    document.getElementById("progressText")
+        .innerText = number + " / 9";
+
 
     window.scrollTo({
+
         top: 0,
-        behavior: 'smooth'
+
+        behavior: "smooth"
+
     });
 
 }
@@ -1357,17 +2222,22 @@ function showSection(number) {
 
 function checkAnswer(button, correct) {
 
-    const activity = button.closest('.activity');
+    const activity =
+        button.closest(".activity");
 
-    const feedback = activity.querySelector('.feedback');
+    const feedback =
+        activity.querySelector(".feedback");
 
-    if(correct) {
 
-        feedback.innerHTML = "✓ Correct! Great job.";
+    if (correct) {
+
+        feedback.innerHTML =
+            "✓ Correct! Great job.";
 
     } else {
 
-        feedback.innerHTML = "Try again. Look at the language carefully.";
+        feedback.innerHTML =
+            "Try again. Look carefully.";
 
     }
 
@@ -1380,10 +2250,12 @@ function checkAnswer(button, correct) {
 
 function finishClass() {
 
-    document.getElementById('finalFeedback').innerHTML =
-        "🎉 Excellent! You completed Class 01. You are ready for the next challenge.";
+    document.getElementById("finalFeedback")
+        .innerHTML =
+        "🎉 Excellent! You completed Class 01.";
 
 }
+
 
 </script>
 
