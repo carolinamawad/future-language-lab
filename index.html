@@ -1,268 +1,1391 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Future Language Lab | C1</title>
+<title>English Lab | Class 01</title>
 
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: #07111f;
+    color: #f5f7fb;
+    min-height: 100vh;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(7,17,31,0.92);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.navbar {
+    max-width: 1250px;
+    margin: auto;
+    padding: 18px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.logo span {
+    color: #63d7ff;
+}
+
+.nav-links {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.nav-links button {
+    background: transparent;
+    color: #b9c5d6;
+    border: none;
+    padding: 9px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.nav-links button:hover,
+.nav-links button.active {
+    background: rgba(99,215,255,0.12);
+    color: #63d7ff;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    max-width: 1250px;
+    margin: auto;
+    padding: 80px 25px 60px;
+}
+
+.hero-label {
+    color: #63d7ff;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    margin-bottom: 18px;
+}
+
+.hero h1 {
+    font-size: clamp(42px, 7vw, 82px);
+    line-height: 0.95;
+    margin-bottom: 25px;
+}
+
+.hero h1 span {
+    color: #63d7ff;
+}
+
+.hero p {
+    max-width: 650px;
+    color: #aeb9c9;
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+.start-button {
+    margin-top: 35px;
+    padding: 15px 25px;
+    border: none;
+    border-radius: 10px;
+    background: #63d7ff;
+    color: #07111f;
+    font-weight: 800;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.start-button:hover {
+    transform: translateY(-2px);
+}
+
+/* =========================
+   PROGRESS
+========================= */
+
+.progress-container {
+    max-width: 1250px;
+    margin: auto;
+    padding: 0 25px 30px;
+}
+
+.progress-label {
+    display: flex;
+    justify-content: space-between;
+    color: #8795a8;
+    font-size: 13px;
+    margin-bottom: 8px;
+}
+
+.progress-bar {
+    height: 5px;
+    background: #172436;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    width: 10%;
+    height: 100%;
+    background: #63d7ff;
+    transition: width 0.4s ease;
+}
+
+/* =========================
+   MAIN
+========================= */
+
+main {
+    max-width: 1250px;
+    margin: auto;
+    padding: 20px 25px 80px;
+}
+
+.section {
+    display: none;
+    animation: fadeIn 0.4s ease;
+}
+
+.section.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
     }
-
-    body {
-      min-height: 100vh;
-      font-family: Arial, Helvetica, sans-serif;
-      background: #070b14;
-      color: #f4f7ff;
-      overflow-x: hidden;
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
+}
 
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      background:
-        radial-gradient(circle at 20% 20%, rgba(0, 220, 255, 0.12), transparent 30%),
-        radial-gradient(circle at 80% 70%, rgba(160, 90, 255, 0.12), transparent 30%);
-      pointer-events: none;
-      z-index: -1;
+.section-number {
+    color: #63d7ff;
+    font-size: 13px;
+    letter-spacing: 3px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.section h2 {
+    font-size: 38px;
+    margin-bottom: 12px;
+}
+
+.section-intro {
+    color: #9daabd;
+    margin-bottom: 35px;
+}
+
+/* =========================
+   CARDS
+========================= */
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 18px;
+}
+
+.card {
+    background: #0d1a2b;
+    border: 1px solid #1b2c42;
+    border-radius: 16px;
+    padding: 25px;
+    transition: 0.25s;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    border-color: #63d7ff;
+}
+
+.card-icon {
+    font-size: 35px;
+    margin-bottom: 15px;
+}
+
+.card h3 {
+    margin-bottom: 10px;
+}
+
+.card p {
+    color: #9daabd;
+    line-height: 1.6;
+}
+
+/* =========================
+   DIALOGUE
+========================= */
+
+.dialogue {
+    max-width: 750px;
+    margin: 25px auto;
+}
+
+.message {
+    padding: 18px 22px;
+    margin: 12px 0;
+    border-radius: 15px;
+    max-width: 75%;
+    line-height: 1.5;
+}
+
+.message.a {
+    background: #13283b;
+    border-left: 3px solid #63d7ff;
+}
+
+.message.b {
+    background: #1b2037;
+    margin-left: auto;
+    border-right: 3px solid #a989ff;
+}
+
+.speaker {
+    font-size: 11px;
+    color: #63d7ff;
+    font-weight: 700;
+    letter-spacing: 1px;
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* =========================
+   PRONOUNS
+========================= */
+
+.pronoun {
+    text-align: center;
+    cursor: pointer;
+}
+
+.pronoun .word {
+    font-size: 32px;
+    font-weight: 800;
+    color: #63d7ff;
+}
+
+.pronoun .meaning {
+    margin-top: 7px;
+    color: #9daabd;
+}
+
+/* =========================
+   LANGUAGE BOX
+========================= */
+
+.language-box {
+    margin-top: 30px;
+    background: #0b1625;
+    border: 1px solid #20344d;
+    border-radius: 18px;
+    padding: 30px;
+}
+
+.language-box h3 {
+    color: #63d7ff;
+    margin-bottom: 20px;
+}
+
+.structure {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+}
+
+.structure div {
+    padding: 18px;
+    background: #101f31;
+    border-radius: 10px;
+}
+
+.structure strong {
+    color: #63d7ff;
+}
+
+/* =========================
+   ALPHABET
+========================= */
+
+.alphabet {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+    gap: 8px;
+    margin-top: 25px;
+}
+
+.letter {
+    background: #102033;
+    border: 1px solid #20354c;
+    border-radius: 9px;
+    padding: 15px 5px;
+    text-align: center;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.letter:hover {
+    background: #63d7ff;
+    color: #07111f;
+}
+
+/* =========================
+   COUNTRIES
+========================= */
+
+.country {
+    font-size: 17px;
+}
+
+.country span {
+    display: block;
+    font-size: 13px;
+    color: #8998aa;
+    margin-top: 5px;
+}
+
+/* =========================
+   NUMBERS
+========================= */
+
+.number {
+    font-size: 24px;
+    font-weight: 800;
+    color: #63d7ff;
+}
+
+/* =========================
+   ACTIVITY
+========================= */
+
+.activity {
+    margin-top: 35px;
+    background: #101e30;
+    border: 1px solid #243a54;
+    border-radius: 18px;
+    padding: 30px;
+}
+
+.activity h3 {
+    margin-bottom: 15px;
+}
+
+.activity p {
+    color: #aab5c5;
+    margin-bottom: 20px;
+}
+
+.options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.option {
+    padding: 12px 18px;
+    background: #15273b;
+    color: white;
+    border: 1px solid #29425d;
+    border-radius: 9px;
+    cursor: pointer;
+}
+
+.option:hover {
+    border-color: #63d7ff;
+}
+
+.feedback {
+    margin-top: 15px;
+    font-weight: 600;
+    min-height: 20px;
+}
+
+/* =========================
+   PROFILE
+========================= */
+
+.profile {
+    max-width: 600px;
+    margin: auto;
+    background: #0d1a2b;
+    border: 1px solid #28425d;
+    border-radius: 20px;
+    padding: 30px;
+}
+
+.profile-row {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #20344c;
+    padding: 15px 0;
+}
+
+.profile-row:last-child {
+    border-bottom: none;
+}
+
+.profile-row span:first-child {
+    color: #8e9daf;
+}
+
+.profile-row span:last-child {
+    font-weight: 700;
+}
+
+/* =========================
+   FINAL TASK
+========================= */
+
+.final-task {
+    background: linear-gradient(135deg, #10283a, #151d38);
+    border: 1px solid #31516d;
+    border-radius: 20px;
+    padding: 35px;
+    margin-top: 25px;
+}
+
+.final-task h3 {
+    font-size: 27px;
+    margin-bottom: 20px;
+}
+
+.final-task p {
+    line-height: 1.8;
+    color: #c0cad7;
+}
+
+.final-task .sentence {
+    margin: 12px 0;
+    padding: 13px 18px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 8px;
+}
+
+/* =========================
+   NAVIGATION
+========================= */
+
+.lesson-navigation {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 45px;
+    gap: 15px;
+}
+
+.lesson-navigation button {
+    padding: 13px 22px;
+    border-radius: 9px;
+    border: 1px solid #29425d;
+    background: #0d1a2b;
+    color: white;
+    cursor: pointer;
+}
+
+.lesson-navigation button:hover {
+    border-color: #63d7ff;
+    color: #63d7ff;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:700px) {
+
+    .nav-links {
+        display: none;
     }
-
-    /* NAVIGATION */
-
-    nav {
-      width: 100%;
-      padding: 24px 6%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-      background: rgba(7,11,20,0.75);
-      backdrop-filter: blur(12px);
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
-
-    .logo {
-      font-size: 18px;
-      font-weight: 700;
-      letter-spacing: 2px;
-    }
-
-    .logo span {
-      color: #6ee7ff;
-    }
-
-    .level {
-      font-size: 13px;
-      letter-spacing: 2px;
-      padding: 8px 14px;
-      border: 1px solid rgba(110,231,255,0.4);
-      border-radius: 30px;
-      color: #6ee7ff;
-    }
-
-    /* HERO */
 
     .hero {
-      min-height: calc(100vh - 80px);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 80px 20px;
-      position: relative;
+        padding-top: 55px;
     }
 
-    .eyebrow {
-      font-size: 13px;
-      letter-spacing: 5px;
-      text-transform: uppercase;
-      color: #6ee7ff;
-      margin-bottom: 28px;
+    .section h2 {
+        font-size: 30px;
     }
 
-    h1 {
-      font-size: clamp(48px, 8vw, 100px);
-      line-height: 0.95;
-      letter-spacing: -4px;
-      max-width: 1100px;
-      margin-bottom: 28px;
+    .message {
+        max-width: 90%;
     }
-
-    h1 span {
-      background: linear-gradient(90deg, #ffffff, #6ee7ff, #b98cff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .subtitle {
-      font-size: clamp(18px, 2vw, 25px);
-      color: #aab4c7;
-      max-width: 750px;
-      line-height: 1.6;
-      margin-bottom: 45px;
-    }
-
-    .start-button {
-      display: inline-block;
-      padding: 17px 34px;
-      border-radius: 50px;
-      border: 1px solid rgba(110,231,255,0.7);
-      color: white;
-      text-decoration: none;
-      letter-spacing: 2px;
-      font-size: 13px;
-      transition: 0.3s ease;
-      background: rgba(110,231,255,0.06);
-    }
-
-    .start-button:hover {
-      background: rgba(110,231,255,0.15);
-      transform: translateY(-3px);
-      box-shadow: 0 0 35px rgba(110,231,255,0.2);
-    }
-
-    /* TABS */
-
-    .tabs {
-      width: min(1100px, 92%);
-      margin: 0 auto 80px;
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 14px;
-    }
-
-    .tab {
-      padding: 24px 18px;
-      text-align: center;
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 14px;
-      background: rgba(255,255,255,0.025);
-      color: #dce4f3;
-      transition: 0.3s ease;
-    }
-
-    .tab:hover {
-      transform: translateY(-5px);
-      border-color: rgba(110,231,255,0.45);
-      background: rgba(110,231,255,0.06);
-    }
-
-    .tab-number {
-      font-size: 11px;
-      color: #6ee7ff;
-      letter-spacing: 2px;
-      margin-bottom: 10px;
-    }
-
-    .tab-title {
-      font-size: 14px;
-      font-weight: 600;
-      letter-spacing: 1px;
-    }
-
-    /* FOOTER */
-
-    footer {
-      text-align: center;
-      padding: 30px;
-      color: #687386;
-      font-size: 12px;
-      letter-spacing: 1px;
-      border-top: 1px solid rgba(255,255,255,0.06);
-    }
-
-    @media (max-width: 700px) {
-      .tabs {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      h1 {
-        letter-spacing: -2px;
-      }
-    }
-
-    @media (max-width: 450px) {
-      .tabs {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
+}
+</style>
 </head>
 
 <body>
 
-  <nav>
-    <div class="logo">
-      FUTURE<span>LANGUAGE</span>LAB
+<header>
+    <div class="navbar">
+
+        <div class="logo">
+            ENGLISH <span>LAB</span>
+        </div>
+
+        <div class="nav-links">
+            <button onclick="showSection(1)">C1</button>
+            <button onclick="showSection(2)">Greetings</button>
+            <button onclick="showSection(3)">Pronouns</button>
+            <button onclick="showSection(4)">To Be</button>
+            <button onclick="showSection(5)">Alphabet</button>
+            <button onclick="showSection(6)">Countries</button>
+            <button onclick="showSection(7)">Numbers</button>
+            <button onclick="showSection(8)">Practice</button>
+            <button onclick="showSection(9)">Communicate</button>
+        </div>
+
+    </div>
+</header>
+
+
+<section class="hero" id="home">
+
+    <div class="hero-label">
+        ENGLISH LAB · A1 BEGINNER
     </div>
 
-    <div class="level">
-      CEFR · C1
+    <h1>
+        CLASS <span>01</span>
+    </h1>
+
+    <p>
+        Welcome to English Lab.
+        In this class, you will discover how to greet people,
+        introduce yourself, spell your name, talk about countries
+        and use basic numbers.
+    </p>
+
+    <button class="start-button" onclick="showSection(1)">
+        START CLASS →
+    </button>
+
+</section>
+
+
+<div class="progress-container">
+
+    <div class="progress-label">
+        <span>CLASS 01 PROGRESS</span>
+        <span id="progressText">1 / 9</span>
     </div>
-  </nav>
 
-  <main>
+    <div class="progress-bar">
+        <div class="progress-fill" id="progressFill"></div>
+    </div>
 
-    <section class="hero">
-
-      <div class="eyebrow">
-        ONLINE LEARNING MODULE · 01
-      </div>
-
-      <h1>
-        <span>Future Trends</span><br>
-        in Language Teaching
-      </h1>
-
-      <p class="subtitle">
-        Predicting and Justifying Possibilities
-      </p>
-
-      <a href="#module" class="start-button">
-        ENTER THE LAB →
-      </a>
-
-    </section>
+</div>
 
 
-    <section class="tabs" id="module">
-
-      <div class="tab">
-        <div class="tab-number">01</div>
-        <div class="tab-title">LEARNING OBJECTIVES</div>
-      </div>
-
-      <div class="tab">
-        <div class="tab-number">02</div>
-        <div class="tab-title">CONTENT</div>
-      </div>
-
-      <div class="tab">
-        <div class="tab-number">03</div>
-        <div class="tab-title">ACTIVITIES</div>
-      </div>
-
-      <div class="tab">
-        <div class="tab-number">04</div>
-        <div class="tab-title">ASSESSMENT</div>
-      </div>
-
-    </section>
-
-  </main>
+<main>
 
 
-  <footer>
-    FUTURE LANGUAGE LAB · C1 · PREDICTING & JUSTIFYING POSSIBILITIES
-  </footer>
+<!-- =========================
+     01 GREETINGS
+========================= -->
+
+<section class="section active" id="section1">
+
+    <div class="section-number">01 · DISCOVER</div>
+
+    <h2>👋 Greetings</h2>
+
+    <p class="section-intro">
+        Let's start with the language we use when we meet someone.
+    </p>
+
+    <div class="grid">
+
+        <div class="card">
+            <div class="card-icon">👋</div>
+            <h3>Hello!</h3>
+            <p>A common way to greet someone.</p>
+        </div>
+
+        <div class="card">
+            <div class="card-icon">😊</div>
+            <h3>Hi!</h3>
+            <p>A friendly and informal greeting.</p>
+        </div>
+
+        <div class="card">
+            <div class="card-icon">☀️</div>
+            <h3>Good morning!</h3>
+            <p>We use it in the morning.</p>
+        </div>
+
+        <div class="card">
+            <div class="card-icon">🌙</div>
+            <h3>Goodbye!</h3>
+            <p>We use it when we leave.</p>
+        </div>
+
+    </div>
+
+    <div class="activity">
+
+        <h3>Quick Check</h3>
+
+        <p>
+            You meet someone for the first time. What can you say?
+        </p>
+
+        <div class="options">
+            <button class="option" onclick="checkAnswer(this, true)">
+                Hello!
+            </button>
+
+            <button class="option" onclick="checkAnswer(this, false)">
+                Goodbye!
+            </button>
+
+            <button class="option" onclick="checkAnswer(this, false)">
+                Good night!
+            </button>
+        </div>
+
+        <div class="feedback"></div>
+
+    </div>
+
+    <div class="lesson-navigation">
+        <button onclick="showSection(2)">Next →</button>
+    </div>
+
+</section>
+
+
+<!-- =========================
+     02 LISTENING / DIALOGUE
+========================= -->
+
+<section class="section" id="section2">
+
+    <div class="section-number">02 · LISTEN & CONNECT</div>
+
+    <h2>🎧 Meet Someone</h2>
+
+    <p class="section-intro">
+        Look at the people. Listen to the conversation and connect the language with the situation.
+    </p>
+
+    <div class="grid">
+
+        <div class="card">
+            <div class="card-icon">👩</div>
+            <h3>Anna</h3>
+            <p>Hello! My name is Anna.</p>
+        </div>
+
+        <div class="card">
+            <div class="card-icon">👨</div>
+            <h3>Daniel</h3>
+            <p>Hi! I'm Daniel.</p>
+        </div>
+
+    </div>
+
+    <div class="dialogue">
+
+        <div class="message a">
+            <span class="speaker">ANNA</span>
+            Hello! What's your name?
+        </div>
+
+        <div class="message b">
+            <span class="speaker">DANIEL</span>
+            Hi! My name is Daniel.
+        </div>
+
+        <div class="message a">
+            <span class="speaker">ANNA</span>
+            Nice to meet you!
+        </div>
+
+        <div class="message b">
+            <span class="speaker">DANIEL</span>
+            Nice to meet you, too!
+        </div>
+
+    </div>
+
+    <div class="activity">
+
+        <h3>Connect</h3>
+
+        <p>Who says: "My name is Daniel"?</p>
+
+        <div class="options">
+
+            <button class="option" onclick="checkAnswer(this, false)">
+                Anna
+            </button>
+
+            <button class="option" onclick="checkAnswer(this, true)">
+                Daniel
+            </button>
+
+        </div>
+
+        <div class="feedback"></div>
+
+    </div>
+
+    <div class="lesson-navigation">
+        <button onclick="showSection(1)">← Back</button>
+        <button onclick="showSection(3)">Next →</button>
+    </div>
+
+</section>
+
+
+<!-- =========================
+     03 PRONOUNS
+========================= -->
+
+<section class="section" id="section3">
+
+    <div class="section-number">03 · DISCOVER THE LANGUAGE</div>
+
+    <h2>👤 Personal Pronouns</h2>
+
+    <p class="section-intro">
+        Who are we talking about?
+    </p>
+
+    <div class="grid">
+
+        <div class="card pronoun">
+            <div class="word">I</div>
+            <div class="meaning">me</div>
+        </div>
+
+        <div class="card pronoun">
+            <div class="word">You</div>
+            <div class="meaning">the person I talk to</div>
+        </div>
+
+        <div class="card pronoun">
+            <div class="word">He</div>
+            <div class="meaning">one man / boy</div>
+        </div>
+
+        <div class="card pronoun">
+            <div class="word">She</div>
+            <div class="meaning">one woman / girl</div>
+        </div>
+
+        <div class="card pronoun">
+            <div class="word">It</div>
+            <div class="meaning">one thing / animal</div>
+        </div>
+
+        <div class="card pronoun">
+            <div class="word">We</div>
+            <div class="meaning">me + another person</div>
+        </div>
+
+        <div class="card pronoun">
+            <div class="word">They</div>
+            <div class="meaning">other people</div>
+        </div>
+
+    </div>
+
+    <div class="activity">
+
+        <h3>Who is it?</h3>
+
+        <p>👩 Maria is my friend. ___ is from Colombia.</p>
+
+        <div class="options">
+
+            <button class="option" onclick="checkAnswer(this, false)">
+                He
+            </button>
+
+            <button class="option" onclick="checkAnswer(this, true)">
+                She
+            </button>
+
+            <button class="option" onclick="checkAnswer(this, false)">
+                They
+            </button>
+
+        </div>
+
+        <div class="feedback"></div>
+
+    </div>
+
+    <div class="lesson-navigation">
+        <button onclick="showSection(2)">← Back</button>
+        <button onclick="showSection(4)">Next →</button>
+    </div>
+
+</section>
+
+
+<!-- =========================
+     04 TO BE
+========================= -->
+
+<section class="section" id="section4">
+
+    <div class="section-number">04 · BUILD</div>
+
+    <h2>🔧 Verb TO BE</h2>
+
+    <p class="section-intro">
+        Now let's connect people with information.
+    </p>
+
+    <div class="language-box">
+
+        <h3>TO BE</h3>
+
+        <div class="structure">
+
+            <div>
+                <strong>I am</strong><br>
+                I'm
+            </div>
+
+            <div>
+                <strong>You are</strong><br>
+                You're
+            </div>
+
+            <div>
+                <strong>He is</strong><br>
+                He's
+            </div>
+
+            <div>
+                <strong>She is</strong><br>
+                She's
+            </div>
+
+            <div>
+                <strong>We are</strong><br>
+                We're
+            </div>
+
+            <div>
+                <strong>They are</strong><br>
+                They're
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="activity">
+
+        <h3>Complete the sentence</h3>
+
+        <p>My name is Carolina. ___ from Colombia.</p>
+
+        <div class="options">
+
+            <button class="option" onclick="checkAnswer(this, true)">
+                I'm
+            </button>
+
+            <button class="option" onclick="checkAnswer(this, false)">
+                She's
+            </button>
+
+            <button class="option" onclick="checkAnswer(this, false)">
+                They're
+            </button>
+
+        </div>
+
+        <div class="feedback"></div>
+
+    </div>
+
+    <div class="lesson-navigation">
+        <button onclick="showSection(3)">← Back</button>
+        <button onclick="showSection(5)">Next →</button>
+    </div>
+
+</section>
+
+
+<!-- =========================
+     05 ALPHABET
+========================= -->
+
+<section class="section" id="section5">
+
+    <div class="section-number">05 · SPELL</div>
+
+    <h2>🔤 The Alphabet</h2>
+
+    <p class="section-intro">
+        Can you spell your name?
+    </p>
+
+    <p style="color:#9daabd;">
+        Click a letter to practice identifying it.
+    </p>
+
+    <div class="alphabet">
+
+        <div class="letter">A</div>
+        <div class="letter">B</div>
+        <div class="letter">C</div>
+        <div class="letter">D</div>
+        <div class="letter">E</div>
+        <div class="letter">F</div>
+        <div class="letter">G</div>
+        <div class="letter">H</div>
+        <div class="letter">I</div>
+        <div class="letter">J</div>
+        <div class="letter">K</div>
+        <div class="letter">L</div>
+        <div class="letter">M</div>
+        <div class="letter">N</div>
+        <div class="letter">O</div>
+        <div class="letter">P</div>
+        <div class="letter">Q</div>
+        <div class="letter">R</div>
+        <div class="letter">S</div>
+        <div class="letter">T</div>
+        <div class="letter">U</div>
+        <div class="letter">V</div>
+        <div class="letter">W</div>
+        <div class="letter">X</div>
+        <div class="letter">Y</div>
+        <div class="letter">Z</div>
+
+    </div>
+
+    <div class="activity">
+
+        <h3>Spell your name</h3>
+
+        <p>
+            Example: CAROLINA → C - A - R - O - L - I - N - A
+        </p>
+
+        <button class="option" onclick="alert('Great! Now spell your own name aloud.')">
+            Try it →
+        </button>
+
+    </div>
+
+    <div class="lesson-navigation">
+        <button onclick="showSection(4)">← Back</button>
+        <button onclick="showSection(6)">Next →</button>
+    </div>
+
+</section>
+
+
+<!-- =========================
+     06 COUNTRIES
+========================= -->
+
+<section class="section" id="section6">
+
+    <div class="section-number">06 · EXPLORE THE WORLD</div>
+
+    <h2>🌎 Countries</h2>
+
+    <p class="section-intro">
+        Where are people from?
+    </p>
+
+    <div class="grid">
+
+        <div class="card country">
+            🇨🇴 Colombia
+            <span>Colombia</span>
+        </div>
+
+        <div class="card country">
+            🇺🇸 the United States
+            <span>the United States</span>
+        </div>
+
+        <div class="card country">
+            🇬🇧 the United Kingdom
+            <span>the United Kingdom</span>
+        </div>
+
+        <div class="card country">
+            🇯🇵 Japan
+            <span>Japan</span>
+        </div>
+
+        <div class="card country">
+            🇧🇷 Brazil
+            <span>Brazil</span>
+        </div>
+
+        <div class="card country">
+            🇪🇸 Spain
+            <span>Spain</span>
+        </div>
+
+        <div class="card country">
+            🇫🇷 France
+            <span>France</span>
+        </div>
+
+        <div class="card country">
+            🇨🇦 Canada
+            <span>Canada</span>
+        </div>
+
+    </div>
+
+    <div class="language-box">
+
+        <h3>Notice</h3>
+
+        <p style="color:#b2bdcb; line-height:1.7;">
+            Some country names use <strong>the</strong>.
+            Notice the difference:
+        </p>
+
+        <br>
+
+        <p>
+            🇨🇴 Colombia
+            &nbsp;&nbsp; | &nbsp;&nbsp;
+            🇯🇵 Japan
+        </p>
+
+        <br>
+
+        <p>
+            🇺🇸 <strong>the</strong> United States
+            &nbsp;&nbsp; | &nbsp;&nbsp;
+            🇬🇧 <strong>the</strong> United Kingdom
+        </p>
+
+    </div>
+
+    <div class="lesson-navigation">
+        <button onclick="showSection(5)">← Back</button>
+        <button onclick="showSection(7)">Next →</button>
+    </div>
+
+</section>
+
+
+<!-- =========================
+     07 NUMBERS
+========================= -->
+
+<section class="section" id="section7">
+
+    <div class="section-number">07 · COUNT</div>
+
+    <h2>🔢 Numbers</h2>
+
+    <p class="section-intro">
+        Let's use numbers to give personal information.
+    </p>
+
+    <div class="grid">
+
+        <div class="card"><div class="number">0</div>zero</div>
+        <div class="card"><div class="number">1</div>one</div>
+        <div class="card"><div class="number">2</div>two</div>
+        <div class="card"><div class="number">3</div>three</div>
+        <div class="card"><div class="number">4</div>four</div>
+        <div class="card"><div class="number">5</div>five</div>
+        <div class="card"><div class="number">6</div>six</div>
+        <div class="card"><div class="number">7</div>seven</div>
+        <div class="card"><div class="number">8</div>eight</div>
+        <div class="card"><div class="number">9</div>nine</div>
+        <div class="card"><div class="number">10</div>ten</div>
+        <div class="card"><div class="number">20</div>twenty</div>
+
+    </div>
+
+    <div class="activity">
+
+        <h3>Personal Information</h3>
+
+        <p>
+            What's your phone number?
+        </p>
+
+        <div class="options">
+
+            <button class="option"
+                    onclick="alert('Great! Say each number clearly.')">
+                310 - 456 - 7821
+            </button>
+
+        </div>
+
+    </div>
+
+    <div class="lesson-navigation">
+        <button onclick="showSection(6)">← Back</button>
+        <button onclick="showSection(8)">Next →</button>
+    </div>
+
+</section>
+
+
+<!-- =========================
+     08 PRACTICE
+========================= -->
+
+<section class="section" id="section8">
+
+    <div class="section-number">08 · PRACTICE</div>
+
+    <h2>🧠 Build Your Profile</h2>
+
+    <p class="section-intro">
+        Put the language together.
+    </p>
+
+    <div class="profile">
+
+        <div class="profile-row">
+            <span>Name</span>
+            <span>Anna</span>
+        </div>
+
+        <div class="profile-row">
+            <span>Country</span>
+            <span>Colombia</span>
+        </div>
+
+        <div class="profile-row">
+            <span>Phone</span>
+            <span>310 456 7821</span>
+        </div>
+
+    </div>
+
+    <div class="activity">
+
+        <h3>Build the introduction</h3>
+
+        <p>
+            Choose the correct sentence:
+        </p>
+
+        <div class="options">
+
+            <button class="option" onclick="checkAnswer(this, true)">
+                I'm Anna.
+            </button>
+
+            <button class="option" onclick="checkAnswer(this, false)">
+                Anna are.
+            </button>
+
+            <button class="option" onclick="checkAnswer(this, false)">
+                Anna am.
+            </button>
+
+        </div>
+
+        <div class="feedback"></div>
+
+    </div>
+
+    <div class="lesson-navigation">
+        <button onclick="showSection(7)">← Back</button>
+        <button onclick="showSection(9)">Next →</button>
+    </div>
+
+</section>
+
+
+<!-- =========================
+     09 COMMUNICATE
+========================= -->
+
+<section class="section" id="section9">
+
+    <div class="section-number">09 · COMMUNICATE</div>
+
+    <h2>🎯 Meet & Introduce</h2>
+
+    <p class="section-intro">
+        Now it's your turn. Use what you learned.
+    </p>
+
+    <div class="final-task">
+
+        <h3>🗣️ Your Mission</h3>
+
+        <p>
+            Imagine you are meeting someone for the first time.
+            Introduce yourself and ask for basic information.
+        </p>
+
+        <br>
+
+        <div class="sentence">
+            👋 <strong>Hello!</strong>
+        </div>
+
+        <div class="sentence">
+            ❓ <strong>What's your name?</strong>
+        </div>
+
+        <div class="sentence">
+            👤 <strong>My name is ____.</strong>
+        </div>
+
+        <div class="sentence">
+            🔤 <strong>How do you spell it?</strong>
+        </div>
+
+        <div class="sentence">
+            🌎 <strong>I'm from ____.</strong>
+        </div>
+
+        <div class="sentence">
+            🔢 <strong>My phone number is ____.</strong>
+        </div>
+
+        <div class="sentence">
+            😊 <strong>Nice to meet you!</strong>
+        </div>
+
+    </div>
+
+    <div class="activity">
+
+        <h3>Final Check</h3>
+
+        <p>
+            Can you introduce yourself using at least three pieces
+            of personal information?
+        </p>
+
+        <div class="options">
+
+            <button class="option"
+                    onclick="finishClass()">
+                YES — I CAN DO IT!
+            </button>
+
+        </div>
+
+        <div class="feedback" id="finalFeedback"></div>
+
+    </div>
+
+</section>
+
+
+</main>
+
+
+<script>
+
+/* =========================
+   SECTION NAVIGATION
+========================= */
+
+function showSection(number) {
+
+    const sections = document.querySelectorAll('.section');
+
+    sections.forEach(section => {
+        section.classList.remove('active');
+    });
+
+    const selected = document.getElementById('section' + number);
+
+    if(selected) {
+        selected.classList.add('active');
+    }
+
+    const progress = (number / 9) * 100;
+
+    document.getElementById('progressFill').style.width = progress + '%';
+
+    document.getElementById('progressText').innerText =
+        number + ' / 9';
+
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+
+}
+
+
+/* =========================
+   ANSWERS
+========================= */
+
+function checkAnswer(button, correct) {
+
+    const activity = button.closest('.activity');
+
+    const feedback = activity.querySelector('.feedback');
+
+    if(correct) {
+
+        feedback.innerHTML = "✓ Correct! Great job.";
+
+    } else {
+
+        feedback.innerHTML = "Try again. Look at the language carefully.";
+
+    }
+
+}
+
+
+/* =========================
+   FINAL CLASS
+========================= */
+
+function finishClass() {
+
+    document.getElementById('finalFeedback').innerHTML =
+        "🎉 Excellent! You completed Class 01. You are ready for the next challenge.";
+
+}
+
+</script>
 
 </body>
 </html>
